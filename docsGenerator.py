@@ -11,6 +11,25 @@ class Docs(object):
 		self.listeLibrairies = []
 
 
+	def __str__(self):
+
+		self.getClass()
+		self.getDoc()
+		self.getLib()
+
+		
+		l = str(self.listeLibrairies)
+		c = str(self.listeClasses)
+		d = str(self.listeDocString)
+		
+		all = {}
+		all["Lib"] = str(l)
+		all["Class"] = str(c)
+		all["Docstring"] = str(d)
+
+		return str(all)
+
+
 	def getClass(self):
 				
 		for f in self.file:
