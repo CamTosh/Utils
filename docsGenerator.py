@@ -12,15 +12,10 @@ class Docs(object):
 
 
 	def __str__(self):
-
-		self.getClass()
-		self.getDoc()
-		self.getLib()
-
 		
-		l = str(self.listeLibrairies)
-		c = str(self.listeClasses)
-		d = str(self.listeDocString)
+		l = str(self.getClass())
+		c = str(self.getDoc())
+		d = str(self.getLib())
 		
 		all = {}
 		all["Lib"] = str(l)
