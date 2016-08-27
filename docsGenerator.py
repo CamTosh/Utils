@@ -45,8 +45,8 @@ class Docs(object):
 	def getLib(self);
 		# Todo
 		for f in file:
-				if f.startswith('import'):
-					self.listeLibrairies.append(f.replace("import", "").replace(' ', ""))
-				if f.startswith('from'):
-					rer = f.split("import")
-					self.listeLibrairies.append(rer[1].replace("import", "").replace(' ', ""))
+			if f.startswith('import'):
+				self.listeLibrairies.append(f.replace("import", "").replace(' ', ""))
+			if f.startswith('from'):
+				rer = f.split("import")
+				self.listeLibrairies.append(rer[1].replace("import", "").replace(' ', ""))
