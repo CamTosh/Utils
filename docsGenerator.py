@@ -9,21 +9,8 @@ class Docs(object):
 		self.listeClasses = []
 		self.listeDocString = []
 		self.listeLibrairies = []
-
-
-	def __str__(self):
+		self.listeMethods = []
 		
-		l = str(self.getClass())
-		c = str(self.getDoc())
-		d = str(self.getLib())
-		
-		all = {}
-		all["Lib"] = str(l)
-		all["Class"] = str(c)
-		all["Docstring"] = str(d)
-
-		return str(all)
-
 
 	def getClass(self):
 				
@@ -63,3 +50,16 @@ class Docs(object):
 				self.listeLibrairies.append(rer[1].replace("import", "").replace(' ', "").replace("\n", ""))
 
 		return self.listeLibrairies
+
+
+	def getMethod(self):
+
+		for f in self.file:
+			l = re.search('(def)(.*)', f)
+			
+			if l:
+				s = l.group(0)
+				methodName = s.replace(' ', '').replace("def", '').replace(")", '').split("(")
+				self.listeMethods.append(methodName[0])
+
+		return self.listeMethods
